@@ -13,13 +13,13 @@ dataTypes:
   h: Yes we have No bananas  # a string, "Yes" and "No" disambiguated by context.
 ---
 <div class="page-header">
-  <h4>{{{title}}}</h4> 
+  <h4>{{{page.title}}}</h4>
 </div>
 
 <div class="examples">
   <h4>Casting data types</h4>
   <dl class="dl-horizontal">
-    {{#dataTypes}}
+    {{#page.dataTypes}}
       <dt>a.</dt> <dd>{{{a}}}</dd>
       <dt>b.</dt> <dd>{{{b}}}</dd>
       <dt>c.</dt> <dd>{{{c}}}</dd>
@@ -28,6 +28,6 @@ dataTypes:
       <dt>f.</dt> <dd>{{{f}}}</dd>
       <dt>g.</dt> <dd>{{{g}}}</dd>
       <dt>h.</dt> <dd>{{{h}}}</dd>
-    {{/dataTypes}}
+    {{/page.dataTypes}}
   </dl>
 </div>

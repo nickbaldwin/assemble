@@ -27,13 +27,13 @@ women:
   - Susan Williams
 ---
 <div class="page-header">
-  <h1>{{{title}}}</h1> 
+  <h1>{{{page.title}}}</h1>
 </div>
 
 <div class="attributes">
   <h4>Attributes</h4>
   <ul>
-  {{#each attributes}}<li>{{.}}</li>
+  {{#each page.attributes}}<li>{{.}}</li>
   {{/each}}
   </ul>
 </div>
@@ -43,7 +43,7 @@ women:
 <div class="methods">
   <h4>Methods</h4>
   <ul>
-  {{#each methods}}<li>{{.}}</li>
+  {{#each page.methods}}<li>{{.}}</li>
   {{/each}}
   </ul>
 </div>
@@ -54,14 +54,14 @@ women:
   <h3>Lists</h3>
   <h4>Movies</h4>
   <dl class="dl-horizontal">
-    {{#each movies}}
+    {{#each page.movies}}
       <dt>Movie:</dt> <dd>{{.}}</dd>
     {{/each}}
   </dl>
 
   <h4>Groceries</h4>
   <dl class="dl-horizontal">
-    {{#each groceries}}
+    {{#each page.groceries}}
       <dt>Item:</dt> <dd>{{.}}</dd>
     {{/each}}
   </dl>
@@ -73,7 +73,7 @@ women:
   <h3>Hierarchical combinations of elements</h3>
   <h4>Lists of associative arrays</h4>
   <dl class="dl-horizontal">
-    {{#each people}}
+    {{#each page.people}}
       <dt>Name:</dt> <dd>{{name}}</dd>
       <dt>Age:</dt>  <dd>{{age}}</dd>
     {{/each}}
@@ -82,8 +82,8 @@ women:
   <h4>Associative arrays of lists</h4>
   <dl class="dl-horizontal">
     <div><strong>Men</strong></div>
-    {{#each men}}<dt>Name:</dt> <dd>{{.}}</dd>{{/each}}
+    {{#each page.men}}<dt>Name:</dt> <dd>{{.}}</dd>{{/each}}
     <div><strong>Women</strong></div>
-    {{#each women}}<dt>Name:</dt> <dd>{{.}}</dd>{{/each}}
+    {{#each page.women}}<dt>Name:</dt> <dd>{{.}}</dd>{{/each}}
   </dl>
 </div>

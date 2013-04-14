@@ -1,7 +1,7 @@
 ---
 receipt:   Oz-Ware Purchase Invoice
 date:      2007-08-06
-prettyDate: <%= grunt.template.date(date, 'yyyy-mm-dd') %>
+prettyDate: <%= grunt.template.date(page.date, 'yyyy-mm-dd') %>
 customer:
   given:   Dorothy
   family:  Gale
@@ -34,7 +34,7 @@ specialDelivery: >
   man behind the curtain.
 ---
 <div class="page-header">
-  <h4>{{{title}}}</h4> 
+  <h4>{{{title}}}</h4>
 </div>
 
 
@@ -44,16 +44,16 @@ specialDelivery: >
   <h4 style="background: #eee; display: block">Customer Information</h4>
   <dl class="dl-horizontal">
     <dt>Receipt:</dt>
-    <dd>{{receipt}}</dd>
+    <dd>{{page.receipt}}</dd>
 
     <dt>Date:</dt>
-    <dd>{{prettyDate}}</dd>
+    <dd>{{page.prettyDate}}</dd>
 
     <dt>First Name:</dt>
-    <dd>{{customer.given}}</dd>
+    <dd>{{page.customer.given}}</dd>
 
     <dt>Last Name:</dt>
-    <dd>{{customer.family}}</dd>
+    <dd>{{page.customer.family}}</dd>
   </dl>
 </div>
 
@@ -65,7 +65,7 @@ specialDelivery: >
   <h4 style="background: #eee; display: block">Order Information</h4>
   <dl class="dl-horizontal">
     <dt>Items:</dt>
-    {{#each items}}
+    {{#each page.items}}
     <dd>
       <strong class="muted" style="border-bottom: 1px solid #ddd; display: block">Item #{{@index}}</strong>
       <dl class="dl-horizontal">
@@ -75,7 +75,7 @@ specialDelivery: >
         <dd> {{descrip}} </dd>
         <dt>Price: </dt>
         <dd> ${{price}} </dd>
-        <dt>Qty: </dt> 
+        <dt>Qty: </dt>
         <dd> {{quantity}} </dd>
       </dl>
     </dd>
@@ -91,20 +91,20 @@ specialDelivery: >
   <strong>Bill To:</strong>
   <dl class="dl-horizontal">
     <dt>Billing Street: </dt>
-    <dd> {{bill-to.street}} </dd>
+    <dd> {{page.bill-to.street}} </dd>
     <dt>Billing City: </dt>
-    <dd> {{bill-to.city}} </dd>
+    <dd> {{page.bill-to.city}} </dd>
     <dt>Billing State: </dt>
-    <dd> {{bill-to.state}} </dd>
+    <dd> {{page.bill-to.state}} </dd>
   </dl>
   <strong>Ship To:</strong>
   <dl class="dl-horizontal">
     <dt>Shipping Street: </dt>
-    <dd> {{ship-to.street}} </dd>
+    <dd> {{page.ship-to.street}} </dd>
     <dt>Shipping City: </dt>
-    <dd> {{ship-to.city}} </dd>
+    <dd> {{page.ship-to.city}} </dd>
     <dt>Shipping State: </dt>
-    <dd> {{ship-to.state}} </dd>
+    <dd> {{page.ship-to.state}} </dd>
     </dd>
   </dl>
 </div>
@@ -113,5 +113,5 @@ specialDelivery: >
 ============================================ -->
 <div class="special-instructions" style="margin-bottom: 120px;">
   <h4 style="background: #eee; display: block">Delivery Instructions</h4>
-  <p>{{{specialDelivery}}}</p>
+  <p>{{{page.specialDelivery}}}</p>
 </div>

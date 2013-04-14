@@ -1,11 +1,12 @@
 ---
-title: YAML Variables
+root:
+  title: YAML Variables
 
 one: &DOOWB This is an example YAML variable. Variables need to be the first thing in the line. If it shows up in the result, it worked!
 two: *DOOWB
 ---
 <div class="page-header">
-  <h4>{{{page.title}}}</h4>
+  <h4>{{{title}}}</h4>
 </div>
 
 {{{page.two}}}

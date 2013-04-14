@@ -404,14 +404,14 @@ module.exports = function(grunt) {
 
     try {
 
-      data.page = pageContext;
+      data.page = lodash.omit(pageContext, 'root');
 
       options.data   = undefined;
       options.pages  = undefined;
       options.layout = undefined;
       options.engine = undefined;
       options.EngineLoader = undefined;
-      context        = _.extend(context, options, data);
+      context        = _.extend(context, options, data, pageContext.root || {});
       options.data   = data;
       options.pages  = pages;
       options.layout = layout;

@@ -404,12 +404,14 @@ module.exports = function(grunt) {
 
     try {
 
+      data.page = pageContext;
+
       options.data   = undefined;
       options.pages  = undefined;
       options.layout = undefined;
       options.engine = undefined;
       options.EngineLoader = undefined;
-      context        = _.extend(context, options, data, pageContext);
+      context        = _.extend(context, options, data);
       options.data   = data;
       options.pages  = pages;
       options.layout = layout;

@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title> Blog  | Assemble</title>
+    <link rel="stylesheet" href="assets/css/assemble.css">
+    <link rel="stylesheet" href="assets/css/github.css">
+  </head>
+  <body style="background: white">
+
+    <!-- nav partial -->
+    
+<div class="navbar">
+  <div class="container">
+    <!--<a class="navbar-brand" href="../index.html">ASSEMBLE</a> -->
+    <a class="navbar-brand" href="../index.html">ASSEMBLE</a>
+    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <div class="nav-collapse collapse bs-navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li>
+          <a href="docs/Home.html">Docs</a>
+        </li>
+        <li>
+          <a href="../site/examples.html">Examples</a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav pull-right">
+        <li class="active">
+          <a href="../site/blog.html">Blog</a>
+        </li>
+        <li> <a href="https://github.com/assemble/assemble/">GitHub Repo</a> </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+
+
+    <!-- pull in page content -->
+    
+<!-- Subhead
+================================================== -->
+<header class="masthead subhead">
+  <div class="container">
+    <div class="row">
+      <div class="col col-lg-6">
+        <h1> BLOG </h1>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+  <div class="panel panel-docs">
+    <h1>This is a simple blog</h1>
+
+    
+    <h2><h1><a href="http://github.com/assemble/assemble">Assemble v0.3.82</a> <a href="https://travis-ci.org/assemble/assemble"><img src="https://travis-ci.org/assemble/assemble.png" alt="Build Status"></a></h1>
+<blockquote>
+<p>Assemble makes it dead simple to build modular sites and components from reusable templates and data.</p>
+</blockquote>
+<p>We love contributors, pull requests are welcome and followers are appreciated.</p>
+<h2>Examples</h2>
+<p>Visit the <a href="http://github.com/assemble/assemble-examples">assemble-examples</a> repo to see a list of example projects, such as:</p>
+<ul>
+<li><a href="http://github.com/assemble/assemble-examples-basic">assembling a basic site</a></li>
+<li><a href="http://github.com/assemble/assemble-examples-readme">building a readme from templates</a>: more useful for large or multi-projects, wikis etc.</li>
+<li><a href="http://github.com/assemble/assemble-examples-sitemap">generating a sitemap</a></li>
+<li><a href="http://github.com/upstage/cheatsheet">cheatsheet component</a>: created for the new lesscss.org website (coming soon!)</li>
+</ul>
+<p><strong>Table of Contents</strong></p>
+<ul>
+<li><a href="#getting-started">Getting started</a></li>
+<li><a href="#the-assemble-task">The &quot;assemble&quot; task</a></li>
+<li><a href="#options">Options</a></li>
+<li><a href="#task-examples">Task Examples</a></li>
+<li><a href="#usage-examples">Usage Examples</a></li>
+<li><a href="#methods">Methods</a></li>
+</ul>
+<h2>Getting started</h2>
+<blockquote>
+<p>It amazes me how flexible this whole system is, as we can dance around all the issues quite easily. <br>
+— <a href="https://github.com/Arkkimaagi">@Arkkimaagi</a></p>
+</blockquote>
+<p><br></p>
+<blockquote>
+<p>Thanks guys, this just goes to show how powerful assemble [is], I was expecting a short &quot;no sorry, not possible&quot;,  <br>
+but instead I&#39;ve got multiple solutions.  <br>
+— <a href="https://github.com/matt-bailey">@matt-bailey</a></p>
+</blockquote>
+<p>If you&#39;re having trouble getting started, please <a href="https://github.com/assemble/assemble/issues">create an Issue</a>, we&#39;re happy to help.</p>
+<p>This plugin requires Grunt <code>~0.4.1</code>. If you haven&#39;t used <a href="http://gruntjs.com/">Grunt</a> before, be sure to check out the <a href="http://gruntjs.com/getting-started">Getting Started</a> guide, as it explains how to create a <a href="http://gruntjs.com/sample-gruntfile">Gruntfile</a> as well as install and use Grunt plugins. Once you&#39;re familiar with that process, you may install this plugin with this command:</p>
+<pre><code class="lang-shell">npm install assemble --save-dev</code></pre>
+<p>Once the plugin has been installed, it may be enabled inside your [Gruntfile][Getting Started] with this line of JavaScript:</p>
+<pre><code class="lang-js">grunt.loadNpmTasks(&#39;assemble&#39;);</code></pre>
+<h2>The &quot;assemble&quot; task</h2>
+<p>In your project&#39;s Gruntfile, add a section named <code>assemble</code> to the data object passed into <code>grunt.initConfig()</code>.</p>
+<pre><code class="lang-js">grunt.initConfig({
+  assemble: {
+    options: {
+      // Task-specific options go here.
+    },
+    your_target: {
+      // Target-specific file lists and/or options go here.
+    }
+  }
+});
+grunt.loadNpmTasks(&#39;assemble&#39;);
+
+grunt.registerTask(&#39;default&#39;, [
+  &#39;jshint&#39;,
+  &#39;assemble&#39;
+]);</code></pre>
+<p>Task targets, files and options may be specified according to the grunt <a href="http://gruntjs.com/configuring-tasks">Configuring tasks</a> guide.</p>
+<h2>Options</h2>
+<p>See the <a href="https://github.com/assemble/assemble/wiki/Options">Options</a> section on the Wiki for more information.</p>
+<h4>assets</h4>
+<p>Type: <code>String</code>
+Default: <code>undefined</code></p>
+<p>Used with the <code>{{assets}}</code> variable to resolve the relative path from the <em>dest file</em> to the <em>assets</em> folder.</p>
+<h4>data</h4>
+<p>Type: <code>Object|Array</code>
+Default: <code>src/data</code></p>
+<p>Retrieves data from any specified <code>JSON</code> and/or <code>YAML</code> files to populate the templates when rendered. Data gets passed through the <code>data</code> object to the options on the assemble task, then to the context in your templates. </p>
+<p>Also useful for specifying <a href="https://github.com/assemble/assemble/wiki/Configuration">configuration</a> data, such as when to render certain templates. For example:</p>
+<p>Also see: <a href="https://github.com/assemble/assemble/wiki/YAML-front-matter">YAML front matter</a></p>
+<h4>layout</h4>
+<p>Type: <code>String</code>
+Default: <code>undefined</code></p>
+<p>If set, this defines the layout file to use for the <a href="http://gruntjs.com/configuring-tasks#task-configuration-and-targets">task or target</a>. However, when specifying a layout, unlike Jekyll, <em>Assemble requires a file extension</em> since you are not limited to using a single file type. </p>
+<h4>partials</h4>
+<p>Type:  <code>Object|Array</code>
+Default: <code>undefined</code></p>
+<p>Specifies the Handlebars partials files, or paths to the directories of files to be used. </p>
+<h4>helpers</h4>
+<p>Type: <code>Object|Array</code>
+Default: <a href="http://github.com/assemble/helper-lib">helper-lib</a></p>
+<p>Path defined to a directory of custom helpers to use with the specified template engine. Assemble currently includes more than <strong><a href="https://github.com/assemble/helper-lib">100+ built-in Handlebars helpers</a></strong>, since Handlebars is the default engine for Assemble.</p>
+<h4>engine</h4>
+<p>Type: <code>Object|Array</code>
+Default: <a href="http://github.com/assemble/helper-lib">helper-lib</a></p>
+<p>Path defined to a directory of custom helpers to use with the specified template engine. Assemble currently includes more than <strong><a href="https://github.com/assemble/helper-lib">100+ built-in Handlebars helpers</a></strong>, since Handlebars is the default engine for Assemble.</p>
+<h4>ext</h4>
+<p>Type: <code>String</code>
+Default: <code>.html</code></p>
+<p>Specify the file extension for destination files. Example:</p>
+<p>More <a href="https://github.com/assemble/assemble/wiki/Options">info about ext</a>.</p>
+<h4>flatten</h4>
+<p>Type: <code>Boolean</code>
+Default: <code>false</code></p>
+<p>Remove anything after (and including) the first &quot;.&quot; in the destination path, then append this value. In other words, when files are generated from different source folders this &quot;flattens&quot; them into the same destination directory. See [building the files object dynamically][files-object] for more information on <code>files</code> formats.</p>
+<h2>Custom &quot;Options Variables&quot;</h2>
+<p>You can add any custom variables directly to the options block:</p>
+<pre><code class="lang-javascript">assemble {
+  myProject: {
+    options: {
+      custom_option1: &#39;value&#39;,
+      custom_option2: &#39;value&#39;
+    },
+    files: {
+      &#39;dest&#39;: [&#39;src/templates*.hbs&#39;]
+    }
+  }
+}</code></pre>
+<p>This offers a great deal of flexibility, but it&#39;s also something that should be done sparingly because your tasks and targets can get out of hand pretty quickly. </p>
+<h3>Usage Examples</h3>
+<p>Here are a couple of common use cases for custom options variables:</p>
+<h3>development stages</h3>
+<p>Add custom variables for development stages, such as <code>dev</code> and <code>prod</code>:</p>
+<pre><code class="lang-javascript">assemble {
+  myProject: {
+    options: {
+      dev: true,
+      prod: false
+    },
+    files: {
+      &#39;dest&#39;: [&#39;src/templates*.hbs&#39;]
+    }
+  }
+}</code></pre>
+<p>Then we can wrap sections in our templates with these contexts to include or exclude content based on truthy or falsy evalution of the <code>dev</code> and <code>prod</code> variables.</p>
+<pre><code class="lang-hbs">{{#dev}}
+  &lt;script src=&quot;script.js&quot;&gt;&lt;/script&gt;
+{{/dev}}
+{{#prod}}
+  &lt;script src=&quot;script.min.js&quot;&gt;&lt;/script&gt;
+{{/prod}}</code></pre>
+<h4>version consistency</h4>
+<p>Get or set metadata to/from <code>package.json</code>:</p>
+<pre><code class="lang-javascript">pkg: grunt.file.readJSON(&#39;package.json&#39;),
+
+assemble {
+  myProject: {
+    options: {
+      version: &#39;&lt;%= pkg.version %&gt;&#39;
+    },
+    files: {
+      &#39;dest&#39;: [&#39;src/templates*.hbs&#39;]
+    }
+  }
+}</code></pre>
+<p>Used in our templates like this: <code>{{version}}</code></p>
+<p><strong>NOTE</strong>: It&#39;s worth noting that you can accomplish the same end goal by using the <code>options.data</code> object instead of creating a custom &quot;options variable&quot;. See the <a href="https://github.com/assemble/assemble/wiki/Options">options.data</a> page in the wiki for more detail.</p>
+<h2><a href="http://github.com/assemble/assemble-examples">Task Examples</a></h2>
+<p>Visit the <a href="http://github.com/assemble/assemble-examples">assemble-examples</a> repo to see a list of example projects.</p>
+<h4>Compile Handlebars templates</h4>
+<p>Simple example of using data files in both <code>.json</code> and <code>.yml</code> format to build Handlebars templates.</p>
+<pre><code class="lang-javascript">assemble: {
+  docs: {
+    options: {
+      data: &#39;src/data/**/*.{json,yml}&#39;
+    },
+    files: {
+      &#39;dist/&#39;: [&#39;src/templates/**/*.hbs&#39;]
+    }
+  }
+}</code></pre>
+<h4>Generate a markdown README</h4>
+<p>The example shows how you can use Assemble to generate a markdown formatted readme from Handlebars templates. </p>
+<pre><code class="lang-javascript">assemble: {
+  readme: {
+    options: {
+      flatten: true,
+      partials: &#39;src/content/*.hbs&#39;,
+      data: &#39;package.json&#39;,
+      ext: &#39;&#39;
+    },
+    src:  &#39;src/templates/README.md.hbs&#39;,
+    dest: &#39;./&#39;
+  }
+}</code></pre>
+<p>Visit the <a href="http://github.com/assemble/assemble-examples-readme">assemble-examples-readme</a> repo to see a working example.</p>
+<h4>Generate <code>.xml</code> sitemap</h4>
+<p>You can generate a sitemap from a static data source, such as <code>sitemap.json</code>, or use Assemble&#39;s built-in <code>pages</code> and <code>page</code> variables to automatically generate a sitemap from all pages in a target.</p>
+<pre><code class="lang-javascript">assemble: {
+  options: {
+    flatten: true,
+    data: &#39;src/sitemap.json&#39;,
+    ext: &#39;.xml&#39;
+  },
+  component: {
+    files: {
+      &#39;Sitemap.xml&#39;: [&#39;src/sitemap.hbs&#39;]
+    }
+  }
+}</code></pre>
+<h2><a href="http://github.com/assemble/assemble-examples">Usage Examples</a></h2>
+<p>Let&#39;s start by creating a template, which can be any kind of markdown, text, xml or markup/HTML that we want to use. For this example our template is going to be HTML, and since I&#39;m feeling creative let&#39;s call it <code>my-template.hbs</code>. </p>
+<p>Now, focusing only on the <code>head</code> of our HTML document, let&#39;s add template variables for <code>title</code> and <code>author</code> so that we can later replace them with real data:</p>
+<pre><code class="lang-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;title&gt;{{title}}&lt;/title&gt;
+    &lt;meta name=&quot;author&quot; content=&quot;{{author}}&quot;&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p>Handlebars.js is the default template engine in Assemble, so our variables are wrapped in &quot;Handlebars expressions&quot;: <code>{{</code> and <code>}}</code>. </p>
+<h3>Data</h3>
+<p>For data we can mix and match any of the following formats: </p>
+<ul>
+<li><a href="">JSON</a> files, such as <code>my-data.json</code></li>
+<li><a href="">YAML</a> files, such as <code>my-data.yml</code></li>
+<li><a href="">YAML Front-Matter</a>, embedded directly inside the template itself</li>
+</ul>
+<p>When working with &quot;external&quot; data files, if we name our file the same as our template, and we add the path to the data file to the <code>options.data</code> object in the <code>assemble</code> task, then Assemble will pick it up and use it automatically.  </p>
+<h4>JSON example</h4>
+<p>Here is an example of what we might put inside of <code>my-template.json</code> to populate our template with data.</p>
+<pre><code class="lang-json">{
+  &quot;title&quot;: &quot;Assemble&quot;,
+  &quot;author&quot;: &quot;Brian Woodward&quot;
+}</code></pre>
+<h4>YAML example</h4>
+<p>Here is the same in YAML format: <code>my-template.yml</code></p>
+<pre><code class="lang-yaml">title: Assemble
+author: Brian Woodward</code></pre>
+<p>And this template: </p>
+<p><code>my-template.hbs</code></p>
+<pre><code>&lt;h1&gt;{{ title }}&lt;/h1&gt;</code></pre>
+<h4>YAML front-matter example</h4>
+<p>Or, in cases where we only require simple metadata we can use YAML Front-matter to eliminate the need for an external data file:</p>
+<pre><code class="lang-yaml">---
+title: Assemble
+author: Brian Woodward
+---
+
+&lt;h1&gt;{{ title }}&lt;/h1&gt;</code></pre>
+<p>Outputs:</p>
+<pre><code class="lang-html">&lt;h1&gt;Assemble&lt;/h1&gt;
+&lt;p&gt;Brian Woodward&lt;/p&gt;</code></pre>
+<h4>Underscore and yaml front-matter</h4>
+<p>Furthermore, we can optionally use underscore templates in the YAML front-matter to translate external variables into data inside the content:</p>
+<pre><code class="lang-yaml">---
+title: &lt;%= some.title.variable %&gt;
+author: &lt;%= some.author.variable %&gt;
+---
+
+&lt;h1&gt;{{ title }}&lt;/h1&gt;
+&lt;p&gt;{{ author }}&lt;/p&gt;</code></pre>
+<h2>Methods</h2>
+<h2>assemble object</h2>
+<p>Methods to the assemble object can be created using:</p>
+<pre><code class="lang-javascript">var assemble = require(&#39;assemble&#39;).init(this);</code></pre>
+<ul>
+<li>the <code>this</code> object is from the grunt task, and can be accessed in assemble &quot;steps&quot; through <code>assemble.task</code></li>
+<li>the <code>init</code> method does some initial option configuration and sets the following properties on the assemble object:</li>
+</ul>
+<pre><code class="lang-javascript">assemble.task;    // refers to the grunt task
+assemble.options; // refers to the task.options merged with assemble defaults
+assemble.files;   // refers to the task.files</code></pre>
+<h3><code>init</code> method</h3>
+<p>Describes <code>init</code> method to <code>assemble.engine</code>, and exposes engine on <code>assemble.engine</code>.</p>
+<h4>Custom Engines</h4>
+<p>If you don&#39;t wish to use Handlebars as your templates engine, you may add your own engine by providing an <code>init</code> function that takes in options from the assemble task/target. You may also override the <code>init</code> function in the task/target options by providing an <code>initializeEngine</code> function that takes the engine and the options:</p>
+<pre><code class="lang-js">assemble: {
+  options: {
+    engine: &#39;consolidate&#39;,
+    initializeEngine: function(engine, options) {
+      engine.engine.swig.init(options);
+    }
+  },
+  docs: {
+    files: {
+      &#39;docs/&#39;: [&#39;src/templates/**/*.tmpl&#39;]
+    }
+  }
+}</code></pre>
+<p>Assemble will attempt to load an engine and automatically add it&#39;s own wrapper methods around it while holding an instance of the engine. This is a way for engine plugin authors to write adapters between other engines and assemble&#39;s wrapper. To make these functions on the options useful, we&#39;ve exposed the underlying engine through the <code>assemble.engine</code> object so <strong>developers can use the raw engine</strong>. </p>
+<p>This is particularly useful when <strong>a)</strong> a library such as <a href="https://github.com/visionmedia/consolidate.js/">consolidate</a> is used, where the engine is <code>consolidate</code>, and <strong>b)</strong> the developer wants to use another engine such as <a href="https://github.com/wycats/handlebars.js">handlebars</a>, <a href="https://github.com/paularmstrong/swig">swig</a>, <a href="https://github.com/janl/mustache.js">mustache</a> etc.</p>
+<ul>
+<li>The <code>init</code> function allows assemble to pass in options to be used in initializing this engine plugin.</li>
+<li><code>init</code> function is exposed, and <a href="https://github.com/assemble/helper-lib">helper-lib</a> is registered inside the init so that options can be passed in.</li>
+</ul>
+<p>Admittedly, the <code>engine.engine</code> syntax is strange. This is &quot;alpha&quot;, so feedback and pull requests are especially welcome if you have ideas for improving this.</p>
+<h2>Registering custom helpers</h2>
+<p>Custom helpers may be loaded with the current engine via <code>options: { helpers: []}</code> in the assemble task or target. But <em>any helpers registered at the target level will override task-level helpers</em>.</p>
+<p>Glob patterns may be used to specify the path to the helpers to be loaded:</p>
+<pre><code class="lang-js">assemble: {
+  options: {
+    helpers: [&#39;./lib/helpers/**/*.js&#39;]
+  }
+}</code></pre>
+<p>Helpers can either be an object or a single <code>register</code> function. If <code>register</code> is on the object, then it calls the <code>register</code> function passing in the engine, otherwise each method is registered as a helper. </p>
+<p>For example, the following will result in 2 helpers being registered:</p>
+<pre><code class="lang-js">module.exports.foo = function(msg) { return msg; };
+module.exports.bar = function(msg) { return msg; };</code></pre>
+<p>And this will result in the <code>foo</code> helper getting register directly through Handlebars:</p>
+<pre><code class="lang-js">module.exports.register = function(Handlebars, options) {
+  Handlebars.registerHelper(&#39;foo&#39;, function(msg) {
+    return msg;
+  });
+};</code></pre>
+<h2>Passing <code>assemble.options</code> into helpers</h2>
+<p>Any <code>assemble.options</code> may be passed to custom helpers when the helper defines the <code>register</code> method. For example:</p>
+<p>Given our <code>Gruntfile.js</code> has the following <code>assemble</code> task configuration:</p>
+<pre><code class="lang-js">assemble: {
+  options: {
+    version: &#39;0.1.0&#39;, // or we could use &#39;&lt;%= pkg.version %&gt;&#39;
+    helpers: [&#39;lib/helpers/**/*.js&#39;]
+  },
+  blog: {
+    files: {
+      &#39;articles/&#39;: [&#39;src/posts/*.md&#39;]
+    }
+  }
+}</code></pre>
+<p>And given we have defined a custom helper, <code>opt</code>, which gets properties from the <code>assemble.options</code> object and returns them:</p>
+<pre><code class="lang-js">module.exports.register = register = function(Handlebars, options) {
+
+  Handlebars.registerHelper(&#39;opt&#39;, function(key) {
+    return options[key] || &#39;&#39;;
+  });
+
+};</code></pre>
+<p>We can now user our helper in a Handlebars template like this:</p>
+<pre><code class="lang-html">&lt;div&gt;Version: v{{opt &#39;version&#39;}}&lt;/div&gt;</code></pre>
+<p>And the output would be:</p>
+<pre><code class="lang-html">&lt;div&gt;Version: v0.1.0&lt;/div&gt;</code></pre>
+<h4>Register Partials</h4>
+<p>Call <code>registerPartial</code> by passing in an engine:</p>
+<pre><code class="lang-javascript">registerPartial(assemble.engine, &#39;partialName&#39;, content);</code></pre>
+<p>Example of how this would be setup in the <code>options</code> of the assemble task or target:</p>
+<pre><code class="lang-javascript">assemble: {
+  options: {
+    registerPartial: function(engine, name, content) {
+      var tmpl = engine.compile(content);
+      engine.engine.registerPartial(name, tmpl);
+    }
+  },
+  blog: {
+    files: {
+      &#39;dist/blog/&#39;: [&#39;src/templates/**/*.tmpl&#39;]
+    }
+  }
+}</code></pre>
+<h3>assemble steps</h3>
+<p>There are also methods to setup the assemble steps, and then execute the build:</p>
+<p>The <code>step</code> function takes a function which takes 2 parameters <code>function(assemble, next)</code>:</p>
+<ol>
+<li><code>assemble</code> is the actual assemble object</li>
+<li><code>next</code> is a callback function that needs to be called when finished executing this step</li>
+</ol>
+<p>See the following example:</p>
+<pre><code class="lang-javascript">assemble.step(function(assemble, next) {
+  // do some code here
+  // you can add properties to assemble which can be accessed in later steps
+  assemble.myCustomProperty = { foo: &#39;bar&#39; };
+
+  // always call next when finished and pass back the assemble object
+  next(assemble);
+});</code></pre>
+<h4>the <code>step</code> function</h4>
+<p>The <code>step</code> function also returns the current assemble object so it&#39;s chainable...</p>
+<pre><code class="lang-javascript">var assemble = require(&#39;assemble&#39;).init(this)
+    .step(step1)
+    .step(step2)
+    .step(step3)
+    .build(done);
+`</code></pre>
+<h4>the <code>build</code> function</h4>
+<p>The <code>build</code> function takes a callback that is called when the build process is complete. The build process calls the steps that were previously setup, passing in the <code>assemble</code> object.</p>
+<pre><code class="lang-javascript">assemble.build(function(err, result) {
+  if(err) {
+    console.log(err);
+    return;
+  }
+  console.log(&#39;finished building&#39;);
+});</code></pre>
+<h3>Example custom Grunt.js plugin, &quot;<code>steps</code>&quot;</h3>
+<p>This shows how to create a custom Grunt plugin using Assemble steps. </p>
+<pre><code class="lang-js">grunt.registerMultiTask(&#39;steps&#39;, &#39;examples of using steps in assemble&#39;, function() {
+
+  var done = this.async();
+
+  grunt.verbose.writeln((&#39;Running &#39; + this.name + &#39; - &#39; + this.target).cyan);
+
+  // require assemble
+  var assemble = require(&#39;assemble&#39;);
+
+  // initalize assemble with the currently running task
+  assemble = assemble.init(this);
+
+  // let&#39;s see what assemble has now
+  grunt.verbose.writeln(require(&#39;util&#39;).inspect(assemble));
+  grunt.verbose.writeln(&#39;&#39;);
+
+  // you can see there are some defaults that assemble sets up
+  // add the steps you want to execute
+
+  // add a custom string property to the assemble object
+  assemble.step(function(assemble, next) {
+    grunt.log.writeln(&#39;running step 1&#39;);
+    assemble.step1 = &#39;This is step 1&#39;;
+    next(assemble);
+  });
+
+  // add a custom object property to the assemble object
+  assemble.step(function(assemble, next) {
+    grunt.log.writeln(&#39;running step 2&#39;);
+    assemble.step2 = {
+      data: &#39;This is step 2&#39;
+    };
+    next(assemble);
+  });
+
+  // add a custom array property to the assemble object
+  assemble.step(function(assemble, next) {
+    grunt.log.writeln(&#39;running step 3&#39;);
+    assemble.step3 = [&#39;This is step 3&#39;];
+    next(assemble);
+  });
+
+  // the last step will use the custom properties set up in the first 3 steps
+  assemble.step(function(assemble, next) {
+    grunt.log.writeln(&#39;running step 4&#39;);
+
+    grunt.log.writeln(&#39;  data from other steps: &#39;);
+    grunt.log.writeln(&#39;    &#39; + assemble.step1);
+    grunt.log.writeln(&#39;    &#39; + assemble.step2.data);
+    grunt.log.writeln(&#39;    &#39; + assemble.step3[0]);
+    grunt.log.writeln(&#39;&#39;);
+
+    next(assemble);
+  });
+
+  // now run build
+  assemble.build(function(err, results) {
+    grunt.log.writeln(&#39;build finished&#39;);
+    done();
+  });
+
+});</code></pre>
+<h3>Example Gruntfile with <code>steps</code> task</h3>
+<p>The following code is for an entire <code>Gruntfile.js</code>, with an example of how to use <code>step</code> and <code>build</code> in the simpilest way.</p>
+<pre><code class="lang-javascript">module.exports = function(grunt) {
+
+  // Project configuration.
+  grunt.initConfig({
+    steps: {
+      target1: {
+        // do something
+      },
+      target2: {
+        // do something else
+      }
+    }
+  });
+
+  // Load npm plugins to provide necessary tasks.
+  grunt.loadNpmTasks(&#39;grunt-contrib-jshint&#39;);
+
+  // Default task.
+  grunt.registerTask(&#39;default&#39;, [&#39;jshint&#39;, &#39;steps&#39;]);
+};</code></pre>
+<h2>Contributing</h2>
+<p>In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Please lint and test your code using Grunt.</p>
+<h2>Authors</h2>
+<p><strong>Jon Schlinkert</strong></p>
+<ul>
+<li><a href="http://twitter.com/jonschlinkert"><a href="http://twitter.com/jonschlinkert">http://twitter.com/jonschlinkert</a></a></li>
+<li><a href="http://github.com/jonschlinkert"><a href="http://github.com/jonschlinkert">http://github.com/jonschlinkert</a></a></li>
+</ul>
+<p><strong>Brian Woodward</strong></p>
+<ul>
+<li><a href="http://twitter.com/doowb"><a href="http://twitter.com/doowb">http://twitter.com/doowb</a></a></li>
+<li><a href="http://github.com/doowb"><a href="http://github.com/doowb">http://github.com/doowb</a></a></li>
+</ul>
+<h2>Copyright and license</h2>
+<p>Copyright 2013 Assemble</p>
+<p><a href="LICENSE-MIT">MIT License</a></p>
+<h2>Release History</h2>
+<ul>
+<li>2013-06-10      v0.3.81     Adding additional ways to load custom helpers. Now it&#39;s possible to use a glob pattern that points to a list of scripts with helpers to load.  Adding examples and tests on how to use the new custom helper loading methods.  </li>
+<li>2013-06-01      v0.3.80     Fixing bug with null value in engine  </li>
+<li>2013-05-07      v0.3.77     Updated README with info about assemble methods  </li>
+<li>2013-04-28      v0.3.74     Updating the assemble library to use the assemble-utils repo and unnecessary code.  </li>
+<li>2013-04-21      v0.3.73     Fixing how the relative path helper worked and showing an example in the footer of the layout. This example is hidden, but can be seen by doing view source.  </li>
+<li>2013-04-20      v0.3.72     Fixing the layout override issue happening in the page yaml headers. Something was missed during refactoring.  </li>
+<li>2013-04-19      v0.3.9      Adding tags and categories to the root context and ensure that the current page context values don&#39;t override the root context values.  </li>
+<li>2013-04-18      v0.3.8      Updating to use actual assets property from current page.  </li>
+<li>2013-04-17      v0.3.7      Cleaning up some unused folders and tests  </li>
+<li>2013-04-16      v0.3.6      Fixed missing assets property.  </li>
+<li>2013-04-16      v0.3.5      Adding a sections array to the template engine so it can be used in helpers.  </li>
+<li>2013-04-11      v0.3.4      More tests for helpers and global variables, organized tests. A number of bug fixes.  </li>
+<li>2013-04-06      v0.3.3      helper-lib properly externalized and wired up. Global variables for filename, ext and pages  </li>
+<li>2013-03-22      v0.3.22     Merged global and target level options so data and partial files can be joined  </li>
+<li>2013-03-22      v0.3.21     Valid YAML now allowed in options.data object (along with JSON)  </li>
+<li>2013-03-18      v0.3.14     new relative helper for resolving relative paths  </li>
+</ul>
+<hr>
+<p><em>This file was generated using Grunt and <a href="http://github.com/assemble/assemble">assemble</a> on Tue Jun 18 2013 04:59:40.</em></p>
+</h2>
+    
+    <h2><hr>
+<p>title: Post, in markdown format
+description: Multiple ways to include content</p>
+<h2>posted: May 10th, 2013</h2>
+<h1> </h1>
+<hr>
+<p><strong>Why use Grunt?</strong>
+The Grunt ecosystem is huge and it&#39;s growing every day. With literally
+hundreds of plugins to choose from, you can use Grunt to automate just
+about anything with a minimum of effort. If someone hasn&#39;t already
+built what you need, authoring and publishing your own Grunt plugin to
+npm is a breeze.</p>
+<h2>Table of Contents</h2>
+<p>An experimental TOC helper that finds headers in the given path, parses
+them and turns them into links.</p>
+<h2>[Getting Started](#Getting Started)</h2>
+<h1>[h1 Heading](#h1 Heading)</h1>
+<h2>[h2 Heading](#h2 Heading)</h2>
+<h3>[h3 Heading](#h3 Heading)</h3>
+<h4>[h4 Heading](#h4 Heading)</h4>
+<h5>[h5 Heading](#h5 Heading)</h5>
+<h6>[h6 Heading](#h6 Heading)</h6>
+<h2>[Language Features](#Language Features)</h2>
+<h3><a href="#Images">Images</a></h3>
+<h3><a href="#Tables">Tables</a></h3>
+<hr>
+<h2>Partial</h2>
+<p>This is a <em>Handlebars partial</em>. Notice we have to add the <code>.md</code> extension here because you don&#39;t normally need an extension in a partial, but we&#39;re referencing a file with the extension <code>.md.hbs</code>, so we need to tell the engine that this is correct. </p>
+<h2>Getting Started</h2>
+<h1>h1 Heading</h1>
+<h2>h2 Heading</h2>
+<h3>h3 Heading</h3>
+<h4>h4 Heading</h4>
+<h5>h5 Heading</h5>
+<h6>h6 Heading</h6>
+<p>Nunc vestibulum leo a lorem pulvinar ut convallis odio iaculis. Sed a sapien nec libero semper scelerisque at eget nisl. Vestibulum urna ligula, facilisis sed blandit nec, placerat eget augue. Nulla ultrices hendrerit mauris, quis hendrerit mi bibendum eget. Etiam quam justo, sollicitudin in tempus ac, tristique eget elit. Vivamus fermentum libero id magna mollis eleifend. Integer blandit libero in est hendrerit sollicitudin. Pellentesque ac orci id magna ullamcorper laoreet ut vitae nisl. </p>
+<blockquote>
+<p>Donec massa lacus, ultricies a ullamcorper in, fermentum sed augue. Nunc augue augue, aliquam non hendrerit ac, commodo vel nisi. </p>
+</blockquote>
+<p>Aliquam erat volutpat. Ut imperdiet condimentum nisi non aliquet. Vivamus sit amet consectetur sapien. Phasellus varius interdum urna, eget mattis justo faucibus vel. Aliquam elementum, magna ut pretium molestie, erat orci eleifend tellus, sit amet rhoncus arcu odio eu sem. Proin lobortis mi ac ante luctus porta. Mauris sit amet vestibulum orci.</p>
+<blockquote>
+<p>Donec massa lacus, ultricies a ullamcorper in, fermentum sed augue. Nunc augue augue, aliquam non hendrerit ac, commodo vel nisi. </p>
+<blockquote>
+<p>Sed adipiscing elit vitae augue consectetur a gravida nunc vehicula. Donec auctor odio non est accumsan facilisis. Aliquam id turpis in dolor tincidunt mollis ac eu diam.</p>
+</blockquote>
+</blockquote>
+<p>Aliquam ut augue turpis, eget mattis nibh. Suspendisse urna mauris, pharetra vitae laoreet non, tempor sit amet metus. Donec risus diam, tincidunt id elementum sed, ultrices id neque. Curabitur sed nisl non sem gravida malesuada et dapibus justo. Nullam in sagittis magna. Aliquam erat volutpat. Suspendisse potenti. Fusce id posuere orci. In sed vestibulum dolor. Phasellus volutpat eleifend purus sed vestibulum. Ut dolor massa, volutpat nec elementum vel, vestibulum in mi. Donec fringilla dignissim risus.</p>
+<hr>
+<h2><code>{{md}}</code> helper</h2>
+<p>This is a <em>markdown helper</em>. </p>
+<p><h2>Code</h2></p>
+<p><h4>Inline code</h4></p>
+<p><p>To include code (formatted in monospace font), you can either surround inline code with a single backtick (<code>` </code>): <code>some code</code></p></p>
+<pre><code class="lang-md">`some code`</code></pre>
+<h4>Indented code</h4>
+<p>Or indent several lines of code by at least four spaces, as in:</p>
+<pre><code>// Some comments
+line 1 of code
+line 2 of code
+line 3 of code</code></pre>
+<h4>Code &quot;fences&quot;</h4>
+<p>Or wrap the code with backtick &quot;fences&quot; before and after the code: <code>``` </code></p>
+<pre><code class="lang-md">line 1 of code
+line 2 of code
+line 3 of code</code></pre>
+<h4>Code highlighting</h4>
+<p>GFM, or &quot;GitHub Flavored Markdown&quot; also supports syntax highlighting. To activate it, simply add the file extension of the language you want to use directly after the first &quot;fence&quot;: <code>``` js</code> </p>
+<pre><code class="lang-js">assemble: {
+  // Files to build into pages
+  pages: {
+    src:  &#39;templates/pages/*.hbs&#39;,
+    dest: &#39;site/&#39;
+  }
+}</code></pre>
+
+
+<hr>
+<h2><code>{{include}}</code> helper</h2>
+<p>A third way to &quot;include&quot; content, using the <em>include</em> helper.</p>
+<p>Partial <strong>./src/content/chapter-01-getting-started.md.hbs</strong> not found.</p>
+</h2>
+    
+    <h2><hr>
+<p>title: Post, in markdown format</p>
+<h2>posted: May 12th, 2013</h2>
+<h1> </h1>
+<p>Assemble makes it dead simple to build modular sites and components from reusable templates and data.</p>
+</h2>
+    
+  </div>
+</div>
+
+
+
+    <!-- back-to-top link -->
+    <div class="container">
+      <a href="#" class="bs-top">
+        Back to top
+      </a>
+    </div>
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/highlight.js"></script>
+    <script src="assets/js/holder/holder.js"></script>
+    <script src="assets/js/application.js"></script>
+    <script src="assets/js/showup.js"></script>
+    <script>
+      $().showUp('.navbar');
+    </script>
+  </body>
+</html>
